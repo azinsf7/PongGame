@@ -31,6 +31,6 @@ public class TimerManager : MonoBehaviour
 
         // End of time 
         isGameFinished = true;
-        GameManager.Instance.CheckEndGame();
+        GameManager.Instance.CheckEndGame(); //use action 
     }
 }

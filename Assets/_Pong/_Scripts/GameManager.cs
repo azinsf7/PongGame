@@ -179,8 +179,6 @@ namespace FusionPong
 
         public  void CheckEndGame()
         {
-           // if (!Instance.Object.HasStateAuthority) return;
-            
             var winnerPlayer = NetworkManager.Players.OrderByDescending(p => p.Score).FirstOrDefault();
             Debug.Log("winner is "+winnerPlayer.PlayerNumber);
             if (winnerPlayer != null) EndGame(winnerPlayer.Object.InputAuthority);

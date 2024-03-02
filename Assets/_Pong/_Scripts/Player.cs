@@ -39,10 +39,6 @@ namespace FusionPong
         public static void OnScoreChanged(Changed<Player> changed)
         {
             changed.Behaviour.OnScoreChangedEvent.Invoke(changed.Behaviour.Score);
-            
-          // did we win?
-            // if (changed.Behaviour.Score >= GameManager.GoalTarget)
-            //     GameManager.Instance.EndGame(changed.Behaviour.Object.InputAuthority);
         }
         
         public override void Spawned()
