@@ -40,7 +40,7 @@ namespace FusionPong
         {
             changed.Behaviour.OnScoreChangedEvent.Invoke(changed.Behaviour.Score);
             
-            //did we win?
+          // did we win?
             // if (changed.Behaviour.Score >= GameManager.GoalTarget)
             //     GameManager.Instance.EndGame(changed.Behaviour.Object.InputAuthority);
         }

@@ -2,19 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using FusionPong;
+using TMPro;
 using UnityEngine;
 
 public class TimerManager : MonoBehaviour
 {
     private bool isGameFinished;
-    private double timer;
+    [SerializeField] private double timer;
+    [SerializeField] private TextMeshProUGUI timerText;
     
-    private readonly IGameManager gameManager;
-
-    public TimerManager(IGameManager gameManager)
-    {
-        this.gameManager = gameManager;
-    }
     private void Awake()
     {
         StartCoroutine(StartTimer());
@@ -24,17 +20,17 @@ public class TimerManager : MonoBehaviour
     {
         isGameFinished = false;
 
-        while(timer > 0)
+        while(timer >= 0)
         {
             // Countdown the timer with update time
             timer -= Time.deltaTime;
-            Debug.Log("TIMER ISS " + timer);
-            
+       //     Debug.Log("TIMER ISS " + timer);
+            timerText.text = timer.ToString("F2");
             yield return null;
         }
 
         // End of time 
         isGameFinished = true;
-        gameManager.CheckEndGame();
+        GameManager.Instance.CheckEndGame();
     }
 }

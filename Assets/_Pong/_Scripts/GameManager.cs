@@ -10,7 +10,7 @@ using UnityEngine.Events;
 
 namespace FusionPong
 {
-    public class GameManager : NetworkBehaviourSingleton<GameManager>, ISpawned,IGameManager
+    public class GameManager : NetworkBehaviourSingleton<GameManager>, ISpawned
     {
         [SerializeField] private BallController ball;
         [SerializeField] private List<PaddleController> paddles = new();
@@ -179,17 +179,10 @@ namespace FusionPong
 
         public  void CheckEndGame()
         {
-            if (!Instance.Object.HasStateAuthority) return;
-
-            var players = NetworkManager.Players;
-
-            if (players == null || players.Count == 0)
-            {
-                Debug.LogError("Player list is null");
-                return;
-            }
-
-            var winnerPlayer = players.OrderByDescending(p => p.Score).FirstOrDefault();
+           // if (!Instance.Object.HasStateAuthority) return;
+            
+            var winnerPlayer = NetworkManager.Players.OrderByDescending(p => p.Score).FirstOrDefault();
+            Debug.Log("winner is "+winnerPlayer.PlayerNumber);
             if (winnerPlayer != null) EndGame(winnerPlayer.Object.InputAuthority);
         }
 

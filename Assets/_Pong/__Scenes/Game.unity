@@ -1337,7 +1337,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 19.222021
+  orthographic size: 11.11492
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3618,8 +3618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverText: {fileID: 179803776}
   winningPlayerText: {fileID: 1209542287}
-  timerText: {fileID: 0}
-  duration: 5
+  timeToDisconnect: 5
 --- !u!1 &2084813206
 GameObject:
   m_ObjectHideFlags: 0
@@ -3736,6 +3735,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eadd65d4a360f7348841374a60bf06b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 25
+  timerText: {fileID: 1272827431}
 --- !u!222 &2094136481
 CanvasRenderer:
   m_ObjectHideFlags: 0
