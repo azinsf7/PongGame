@@ -82,11 +82,11 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: -1.25}
-      - {x: -0.44, y: -0.62}
-      - {x: -0.44, y: 0.62}
+      - {x: -0.5286898, y: -1.24083}
+      - {x: -0.47941774, y: 1.2309755}
       - {x: 0, y: 1.25}
-      - {x: 0.44, y: 0.62}
-      - {x: 0.44, y: -0.62}
+      - {x: 0.48927253, y: 1.2605388}
+      - {x: 0.5188355, y: -1.2211211}
   m_UseDelaunayMesh: 0
 --- !u!50 &4981520228463022259
 Rigidbody2D:
@@ -252,7 +252,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b39101e2ab8b38648a4e612b20c8d1db, type: 3}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 1, b: 0.8716955, a: 1}
   m_FlipX: 0
   m_FlipY: 0
