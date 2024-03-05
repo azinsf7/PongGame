@@ -29,9 +29,9 @@ namespace FusionPong.UI
             var winningPlayerNumber = player.PlayerPosition == PlayerPosition.Left ? 1 : 2;
             winningPlayerText.text = $"Player {winningPlayerNumber.ToString()} wins" +
                                      $"{Environment.NewLine}" +
-                                     $"{GameManager.GetScoreByPosition(PlayerPosition.Left)}" +
+                                     $"{GameManager.Instance.GetScoreByPosition(PlayerPosition.Left)}" +
                                      $" - " +
-                                     $"{GameManager.GetScoreByPosition(PlayerPosition.Right)}";
+                                     $"{GameManager.Instance.GetScoreByPosition(PlayerPosition.Right)}";
             
             yield return new WaitForSecondsRealtime(duration);
             gameObject.SetActive(false);

@@ -23,7 +23,7 @@ namespace FusionPong.UI
 
         private IEnumerator DoGameStart()
         {
-            var localPlayer = GameManager.GetLocalPlayer();
+            var localPlayer = GameManager.Instance.GetLocalPlayer();
             if (localPlayer.PlayerPosition == PlayerPosition.None)
             {
                 Debug.LogError($"cant access position before it's set");

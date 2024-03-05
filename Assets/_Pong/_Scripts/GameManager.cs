@@ -10,7 +10,7 @@ using UnityEngine.Events;
 
 namespace FusionPong
 {
-    public class GameManager : NetworkBehaviourSingleton<GameManager>, ISpawned
+    public class GameManager : NetworkBehaviourSingleton<GameManager>, ISpawned,IGameManager
     {
         [SerializeField] private BallController ball;
         [SerializeField] private List<PaddleController> paddles = new();
@@ -32,12 +32,15 @@ namespace FusionPong
             OnGameStart?.Invoke();
         }
 
-        public UI_Game GameUi => gameUi;
-
+        public void HandlePlayerPosition(Player changedBehaviour)
+        {
+            gameUi.GetPlayerInfo(changedBehaviour.PlayerPosition).Init(changedBehaviour);
+        }
+        
         public const int GoalTarget = 3;
         public const float StartDelay = 3f;
 
-        public static PaddleController GetPaddleByPosition(PlayerPosition position)
+        public  PaddleController GetPaddleByPosition(PlayerPosition position)
         {
             return position == PlayerPosition.Left ? Instance.paddles[0] : Instance.paddles[1];
         }
@@ -127,37 +130,37 @@ namespace FusionPong
             gamePlaying = true;
         }
     
-        public static Player GetPlayer(PlayerRef playerRef)
+        public  Player GetPlayer(PlayerRef playerRef)
         {
             return NetworkManager.Instance.GetPlayer(playerRef);
         }
 
-        public static Player GetPlayerByPos(PlayerPosition playerPosition)
+        public  Player GetPlayerByPos(PlayerPosition playerPosition)
         {
             return NetworkManager.Instance.GetPlayerByPos(playerPosition);
         }
         
-        public static Player GetOtherPlayer(PlayerRef playerRef)
+        public  Player GetOtherPlayer(PlayerRef playerRef)
         {
             return NetworkManager.Instance.GetOtherPlayer(playerRef);
         }
         
-        public static Player GetOtherPlayerByPos(PlayerPosition playerPosition)
+        public  Player GetOtherPlayerByPos(PlayerPosition playerPosition)
         {
             return NetworkManager.Instance.GetOtherPlayerByPos(playerPosition);
         }
         
-        public static Player GetLocalPlayer()
+        public  Player GetLocalPlayer()
         {
             return NetworkManager.Instance.GetLocalPlayer();
         }
 
-        public static int GetScoreByPosition(PlayerPosition playerPosition)
+        public  int GetScoreByPosition(PlayerPosition playerPosition)
         {
             return NetworkManager.Instance.GetPlayerByPos(playerPosition).Score;
         }
     
-        public static void GoalScored(PlayerPosition playerPosition)
+        public  void GoalScored(PlayerPosition playerPosition)
         {
             if (!Instance.Object.HasStateAuthority) return;
             

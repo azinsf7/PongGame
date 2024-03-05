@@ -27,11 +27,11 @@ namespace FusionPong
             if (changed.Behaviour.PlayerPosition == PlayerPosition.None) return;
             if (!GameManager.InstanceExists) return;
 
-            GameManager.Instance.GameUi.GetPlayerInfo(changed.Behaviour.PlayerPosition).Init(changed.Behaviour);
+            GameManager.Instance.HandlePlayerPosition(changed.Behaviour);
             
             if (!changed.Behaviour.Object.HasStateAuthority) return;
             
-            var paddle = GameManager.GetPaddleByPosition(changed.Behaviour.PlayerPosition);
+            var paddle = GameManager.Instance.GetPaddleByPosition(changed.Behaviour.PlayerPosition);
             paddle.Object.AssignInputAuthority(changed.Behaviour.Object.InputAuthority);
         }
         

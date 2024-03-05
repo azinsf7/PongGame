@@ -23,7 +23,7 @@ namespace FusionPong.Game
             ball.HasScored = true;
             _audioSource.Play();
             
-            GameManager.GoalScored(playerPosition);
+            GameManager.Instance.GoalScored(playerPosition);
         }
     }
 }
